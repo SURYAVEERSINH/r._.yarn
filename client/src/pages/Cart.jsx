@@ -2,6 +2,8 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
+import API_URL from '../config';
+import axios from 'axios'; // Added axios import for axios.post
 import './Cart.css';
 
 const Cart = () => {
@@ -94,11 +96,7 @@ const Cart = () => {
                             }
                         };
 
-                        await fetch('http://192.168.1.8:5000/api/orders', {
-                            method: 'POST',
-                            headers: config.headers,
-                            body: JSON.stringify(orderData)
-                        });
+                        await axios.post(`${API_URL}/api/orders`, orderData, config);
 
                         alert(`Payment Successful! Order Placed.`);
                         clearCart();

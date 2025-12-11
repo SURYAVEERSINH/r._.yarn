@@ -1,4 +1,5 @@
 import React from 'react';
+import API_URL from '../config';
 import { ShoppingBag, Heart, Search, Menu, User, Loader } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
@@ -106,7 +107,7 @@ const Navbar = () => {
                             <Link to="/profile" className={user.profileImage ? "profile-link" : "icon-btn profile-link"} title={user.name}>
                                 {user.profileImage ? (
                                     <img
-                                        src={`http://192.168.1.8:5000${user.profileImage}`}
+                                        src={`${API_URL}${user.profileImage}`}
                                         alt={user.name}
                                         className="user-profile-icon"
                                     />

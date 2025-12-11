@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import API_URL from '../config';
 import './Profile.css';
 import profileDefault from '../assets/profile.jpg'; // We'll user default if no image
 
@@ -54,7 +55,7 @@ const Profile = () => {
             const config = {
                 headers: { Authorization: `Bearer ${user.token}` }
             };
-            const { data } = await axios.get('http://192.168.1.8:5000/api/orders/myorders', config);
+            const { data } = await axios.get(`${API_URL}/api/orders/myorders`, config);
             setMyOrders(data);
         } catch (error) {
             console.error("Error fetching orders", error);
@@ -67,7 +68,7 @@ const Profile = () => {
                 headers: { Authorization: `Bearer ${user.token}` }
             };
             // Note: need to make sure backend route exists for ALL orders
-            const { data } = await axios.get('http://192.168.1.8:5000/api/orders', config);
+            const { data } = await axios.get(`${API_URL}/api/orders`, config);
             setAllOrders(data);
         } catch (error) {
             console.error("Error fetching all orders", error);
@@ -125,7 +126,7 @@ const Profile = () => {
                     'Content-Type': 'multipart/form-data',
                 },
             };
-            const { data } = await axios.post('http://192.168.1.8:5000/api/upload', formData, config);
+            const { data } = await axios.post(`${API_URL}/api/upload`, formData, config);
             setImage(data.image);
             setUploading(false);
         } catch (error) {

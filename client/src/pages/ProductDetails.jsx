@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ShoppingCart, Heart, ArrowLeft } from 'lucide-react';
@@ -5,6 +6,8 @@ import { useCart } from '../context/CartContext';
 import { useFavorites } from '../context/FavoritesContext';
 import ProductCard from '../components/ProductCard';
 import './ProductDetails.css';
+import API_URL from '../config';
+import axios from 'axios'; // Assuming axios is intended to be used with the provided snippet
 
 const ProductDetails = () => {
     const { id } = useParams();
@@ -19,13 +22,12 @@ const ProductDetails = () => {
             try {
                 setLoading(true);
                 // Fetch single product
-                const response = await fetch(`http://192.168.1.8:5000/api/products/${id}`);
-                const data = await response.json();
-                setProduct(data);
+                const productResponse = await axios.get(`${API_URL} /api/products / ${id} `);
+                const productData = productResponse.data;
+                setProduct(productData);
 
                 // Fetch all products to filter for similar ones
                 // Ideally this should be a backend query, but for now we filter client side
-                const allResponse = await fetch('http://192.168.1.8:5000/api/products');
                 const allData = await allResponse.json();
 
                 const sim = allData.filter(p =>
@@ -86,10 +88,10 @@ const ProductDetails = () => {
                             Add to Cart
                         </button>
                         <button
-                            className={`favorite-btn-large ${isFavorite(product._id) ? 'active' : ''}`}
+                            className={`favorite - btn - large ${isFavorite(product._id) ? 'active' : ''} `}
                             onClick={() => toggleFavorite(product)}
                         >
-                            <Heart className={`w-6 h-6 ${isFavorite(product._id) ? 'fill-current text-purple-600' : 'text-gray-400'}`} />
+                            <Heart className={`w - 6 h - 6 ${isFavorite(product._id) ? 'fill-current text-purple-600' : 'text-gray-400'} `} />
                         </button>
                     </div>
                 </div>

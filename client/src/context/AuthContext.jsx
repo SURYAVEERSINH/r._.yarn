@@ -1,4 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import API_URL from '../config';
+import axios from 'axios'; // Assuming axios is installed and needs to be imported
 
 const AuthContext = createContext();
 
@@ -20,48 +22,25 @@ export const AuthProvider = ({ children }) => {
 
     const login = async (email, password) => {
         try {
-            const response = await fetch('http://192.168.1.8:5000/api/users/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ email, password }),
-            });
+            const response = await axios.post(`${API_URL}/api/users/login`, { email, password });
 
-            if (!response.ok) {
-                const contentType = response.headers.get("content-type");
-                let message = 'Login failed';
-                if (contentType && contentType.includes("application/json")) {
-                    const errorData = await response.json();
-                    message = errorData.message || message;
-                } else {
-                    const text = await response.text();
-                    // Extract error message from HTML if possible or just use status text
-                    message = response.statusText || 'Login failed';
-                    console.error('Non-JSON login error:', text);
-                }
-                throw new Error(message);
-            }
-
-            const data = await response.json();
+            const data = response.data;
             setUser(data);
             localStorage.setItem('userInfo', JSON.stringify(data));
             return data;
         } catch (error) {
-            throw error;
+            let message = 'Login failed';
+            if (error.response && error.response.data && error.response.data.message) {
+                message = error.response.data.message;
+            } else if (error.message) {
+                message = error.message;
+            }
+            throw new Error(message);
         }
     };
 
     const signup = async (name, email, password, phone) => {
         try {
-            const response = await fetch('http://192.168.1.8:5000/api/users', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ name, email, password, phone }),
-            });
-
             if (!response.ok) {
                 const contentType = response.headers.get("content-type");
                 let message = 'Signup failed';
@@ -92,7 +71,7 @@ export const AuthProvider = ({ children }) => {
 
     const updateProfile = async (userData) => {
         try {
-            const response = await fetch('http://192.168.1.8:5000/api/users/profile', {
+            const response = await fetch(`${API_URL}/api/users`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
