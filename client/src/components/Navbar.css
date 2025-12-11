@@ -1,0 +1,483 @@
+/* 🌸 Navbar Container */
+.navbar-container {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    background: linear-gradient(135deg, #ffe6f1, #fff0f8);
+    box-shadow: 0 4px 12px rgba(255, 180, 210, 0.2);
+    z-index: 1000;
+}
+
+/* Flex container */
+.navbar-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 18px 32px;
+    /* Increased padding */
+}
+
+.navbar-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo */
+.navbar-logo {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    /* Increased gap */
+}
+
+.navbar-profile-pic {
+    width: 55px;
+    /* Increased size */
+    height: 55px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #ff69b4;
+    box-shadow: 0 2px 8px rgba(255, 105, 180, 0.3);
+}
+
+@keyframes pinkFlameAnim {
+    0% {
+        box-shadow: 0 0 8px #ff69b4, 0 -4px 12px #ff1493, 0 -8px 16px rgba(255, 105, 180, 0.4);
+    }
+
+    50% {
+        box-shadow: 0 0 16px #ff69b4, 0 -10px 24px #ff1493, 0 -18px 36px rgba(255, 20, 147, 0.7);
+        transform: scale(1.05);
+        /* Subtle pulse */
+    }
+
+    100% {
+        box-shadow: 0 0 8px #ff69b4, 0 -4px 12px #ff1493, 0 -8px 16px rgba(255, 105, 180, 0.4);
+    }
+}
+
+.navbar-logo-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.2rem;
+    /* Increased font size */
+    font-weight: 700;
+    color: #d8268c;
+    text-shadow: 0 0 6px #ffc2dc;
+}
+
+/* Desktop Links */
+.navbar-links {
+    display: flex;
+    gap: 20px;
+}
+
+.navbar-link {
+    text-decoration: none;
+    font-weight: 500;
+    color: #d8268c;
+    position: relative;
+    transition: 0.3s;
+}
+
+.navbar-link:hover {
+    color: #ff69b4;
+}
+
+.navbar-link::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background: #ff69b4;
+    left: 0;
+    bottom: -4px;
+    transition: 0.3s;
+}
+
+.navbar-link:hover::after {
+    width: 100%;
+}
+
+/* Search Bar (Desktop) */
+.search-form {
+    display: flex;
+    align-items: center;
+}
+
+/* Kitten Mascot */
+.kitten-mascot {
+    position: absolute;
+    left: 10px;
+    top: -26px;
+    font-size: 1.8rem;
+    z-index: 1;
+    /* Between background and form? No, form is z-index 10. Kitten needs to be behind form. */
+    z-index: 0;
+    /* Form is higher */
+    animation: peek 3s infinite ease-in-out;
+    cursor: pointer;
+    display: inline-block;
+}
+
+@keyframes peek {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(18px) rotate(-10deg);
+        /* Hide behind bar */
+    }
+}
+
+/* Search Bar (Global/Desktop) */
+.search-container {
+    position: relative;
+    /* Anchors the kitten */
+    display: flex;
+    align-items: center;
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+    /* Above kitten */
+    background: white;
+    /* Opaque background to hide kitten */
+    border-radius: 50px;
+    /* Match input shape */
+}
+
+.search-input {
+    border: 2px solid #ffb6d8;
+    border-radius: 50px;
+    padding: 8px 15px;
+    outline: none;
+    font-size: 0.9rem;
+    color: #d8268c;
+    width: 200px;
+    /* Desktop width */
+    transition: 0.3s;
+}
+
+.search-input:focus {
+    border-color: #ff69b4;
+    box-shadow: 0 0 5px rgba(255, 105, 180, 0.4);
+}
+
+.search-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #ff69b4;
+    margin-left: -35px;
+    /* Overlap input */
+    z-index: 10;
+    display: flex;
+    align-items: center;
+}
+
+.search-btn:hover {
+    color: #d8268c;
+    transform: scale(1.1);
+}
+
+/* Icons */
+.navbar-icons {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.icon-btn {
+    background: #ffb6d8;
+    border: none;
+    outline: none;
+    /* Remove blue focus ring */
+    border-radius: 12px;
+    padding: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    /* Ensure links don't have underlines */
+    -webkit-tap-highlight-color: transparent;
+    /* Remove mobile tap highlight */
+}
+
+.icon-btn:focus,
+.icon-btn:active {
+    outline: none;
+    border: none;
+    box-shadow: none;
+}
+
+.icon-btn:hover {
+    background: #ff69b4;
+    transform: scale(1.1);
+    color: white;
+}
+
+.cart-btn {
+    position: relative;
+}
+
+.cart-badge {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    background: #fff;
+    color: #d8268c;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 50%;
+    box-shadow: 0 0 4px rgba(255, 150, 200, 0.3);
+}
+
+/* Mobile Menu Button */
+.mobile-menu-btn {
+    display: none;
+    background: #ffb6d8;
+    border: none;
+    border-radius: 12px;
+    padding: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.mobile-menu-btn:hover {
+    background: #ff69b4;
+    transform: scale(1.1);
+    color: white;
+}
+
+/* Mobile Search Toggle */
+.mobile-search-trigger {
+    display: none;
+    /* Hidden on Desktop */
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .navbar-links {
+        display: none;
+    }
+
+    .mobile-menu-btn {
+        display: inline-flex;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .navbar-container,
+    .navbar-content,
+    .navbar-flex,
+    .search-container {
+        box-sizing: border-box;
+    }
+
+    .navbar-flex {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    /* .desktop-icon rule REMOVED to restore icons */
+
+    /* Row 1: Logo (Centered) */
+    .navbar-logo {
+        order: 1;
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    /* Row 2: Icons (Space Evenly) */
+    .navbar-icons {
+        order: 2;
+        width: 100%;
+        justify-content: space-evenly;
+        margin: 0;
+        gap: 0;
+        /* Let space-evenly handle spacing */
+        display: flex;
+        align-items: center;
+        padding-bottom: 8px;
+    }
+
+    /* Show Mobile Search Trigger on Mobile */
+    .mobile-search-trigger {
+        display: inline-flex;
+    }
+
+    /* Row 3: Search Bar - Collapsible (Absolute) */
+    .search-container {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        margin: 0;
+        display: none;
+        /* Hidden by default */
+        justify-content: center;
+        padding: 10px;
+        background: radial-gradient(circle, #fff0f8, #ffe6f1);
+        /* Match navbar bg */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 999;
+        animation: slideDown 0.2s ease-out;
+    }
+
+    /* Show Search Bar when Open */
+    .search-container.open {
+        display: flex;
+    }
+
+    .navbar-logo-text {
+        font-size: 1.4rem;
+    }
+
+    .navbar-content {
+        padding: 10px 16px;
+    }
+
+    .navbar-profile-pic {
+        width: 40px;
+        height: 40px;
+    }
+
+    /* Full width search input for mobile */
+    .search-form {
+        position: relative;
+        width: 90%;
+        margin: 0 auto;
+        display: block;
+    }
+
+    .search-input {
+        width: 100%;
+        min-width: 0;
+        padding: 10px 45px 10px 20px;
+        /* Right padding for button */
+        font-size: 1rem;
+        height: 46px;
+        box-sizing: border-box;
+        margin: 0;
+        display: block;
+        /* Cute Styling */
+        border-radius: 50px;
+        background-color: #ffffff;
+        border: 2px solid #ffb6d8;
+        box-shadow: 0 4px 10px rgba(255, 182, 216, 0.2);
+        color: #d8268c;
+    }
+
+    .search-input:focus {
+        border-color: #ff69b4;
+    }
+
+    .search-btn {
+        position: absolute;
+        right: 8px;
+        top: 50%;
+        transform: translateY(-50%);
+        margin: 0;
+        height: 36px;
+        width: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: transparent;
+        border: none;
+        color: #ff69b4;
+        cursor: pointer;
+        z-index: 5;
+    }
+
+    /* Show kitten on mobile */
+    .kitten-mascot {
+        display: block;
+        position: absolute;
+        top: -18px;
+        /* Peek from top of the search panel */
+        left: 25px;
+        z-index: 1;
+        /* Above panel background, but below form */
+        font-size: 1.5rem;
+    }
+
+    /* Mobile Menu Dropdown */
+    .mobile-menu-dropdown {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-top: 1px solid #ffe6f1;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        animation: slideDown 0.3s ease-out;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        border-radius: 0 0 20px 20px;
+        margin-top: 10px;
+    }
+
+    .mobile-menu-link {
+        text-decoration: none;
+        color: #d8268c;
+        font-size: 1.1rem;
+        font-weight: 600;
+        padding: 10px;
+        text-align: center;
+        border-radius: 10px;
+        transition: background 0.2s;
+    }
+
+    .mobile-menu-link:active {
+        background: #fff0f5;
+    }
+
+    .mobile-menu-link.highlight {
+        background: #ff69b4;
+        color: white;
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* User Profile Flame Animation & Style */
+.user-profile-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    /* border removed for cleaner look */
+    animation: pinkFlameAnim 2s infinite ease-in-out;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.user-profile-icon:hover {
+    transform: scale(1.15) rotate(5deg);
+    /* Cute tilt and zoom */
+    box-shadow: 0 0 20px #ff69b4, 0 -12px 28px #ff1493, 0 -20px 40px rgba(255, 20, 147, 0.8);
+    /* Intensify flames on hover */
+}

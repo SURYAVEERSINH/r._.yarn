@@ -1,0 +1,117 @@
+/* Reuse the petal animation and general styles from Home.css */
+.login-container {
+    position: relative;
+    overflow: hidden;
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.login-content {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    z-index: 10;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.login-title {
+    font-size: 2.5rem;
+    color: #d8268c;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #666;
+    font-weight: 500;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #ffe6f1;
+    border-radius: 12px;
+    font-size: 1rem;
+    outline: none;
+    transition: 0.3s;
+}
+
+.form-group input:focus {
+    border-color: #ff69b4;
+    box-shadow: 0 4px 6px rgba(255, 105, 180, 0.2);
+}
+
+@media (max-width: 480px) {
+    .login-content {
+        padding: 2rem;
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .login-title {
+        font-size: 1.8rem;
+    }
+}
+
+.login-btn {
+    background: #ff69b4;
+    color: white;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+.login-btn:hover {
+    background: #ff4f9e;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 79, 158, 0.3);
+}
+
+.login-links {
+    margin-top: 20px;
+    color: #666;
+}
+
+.login-link {
+    color: #ff69b4;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-link:hover {
+    text-decoration: underline;
+}
+
+.error-message {
+    background: #ffe6e6;
+    color: #d63031;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #ffcccc;
+}

@@ -1,0 +1,163 @@
+/* Profile container reusing petal background */
+.profile-container {
+    position: relative;
+    overflow: hidden;
+    min-height: 90vh;
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.profile-content {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 40px;
+}
+
+/* Sidebar / User Info */
+.profile-sidebar {
+    border-right: 1px solid #ffe6f1;
+    padding-right: 40px;
+    text-align: center;
+}
+
+.profile-pic-large {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #ff69b4;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.2);
+}
+
+.profile-name {
+    font-size: 1.8rem;
+    color: #d8268c;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.profile-email {
+    color: #666;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+}
+
+/* Form Styles within Profile */
+.profile-form {
+    text-align: left;
+    margin-top: 30px;
+}
+
+.profile-form h3 {
+    color: #c91b7e;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+/* Main Content area */
+.profile-main h2 {
+    font-size: 2rem;
+    color: #d8268c;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+/* Order Tables */
+.table-container {
+    overflow-x: auto;
+}
+
+.order-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.order-table th,
+.order-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ffe6f1;
+}
+
+.order-table th {
+    background: #fff0f6;
+    color: #c91b7e;
+    font-weight: 600;
+}
+
+.order-table tr:hover {
+    background-color: #fff9fc;
+}
+
+.status-paid {
+    color: green;
+    font-weight: bold;
+}
+
+.status-not-paid {
+    color: red;
+    font-weight: bold;
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+    .profile-container {
+        padding: 10px;
+        /* Reduce container padding to save space */
+    }
+
+    .profile-content {
+        padding: 15px;
+        width: 100%;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .profile-sidebar {
+        border-right: none;
+        border-bottom: 1px solid #ffe6f1;
+        padding-right: 0;
+        padding-bottom: 20px;
+        width: 100%;
+    }
+
+    .profile-pic-large {
+        width: 100px;
+        height: 100px;
+    }
+
+    .profile-main {
+        width: 100%;
+        overflow: hidden;
+        /* Prevent spilling */
+    }
+
+    .table-container {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin-top: 10px;
+        border: 1px solid #ffe6f1;
+        border-radius: 8px;
+        display: block;
+        /* Ensure it behaves like a block for scrolling */
+    }
+
+    .order-table th,
+    .order-table td {
+        white-space: nowrap;
+        padding: 10px;
+        font-size: 0.85rem;
+    }
+}

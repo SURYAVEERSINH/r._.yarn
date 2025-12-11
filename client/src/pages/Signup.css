@@ -1,0 +1,56 @@
+/* reuse login styles mostly */
+.signup-container {
+    position: relative;
+    overflow: hidden;
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.signup-content {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    z-index: 10;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.signup-title {
+    font-size: 2.5rem;
+    color: #d8268c;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* reuse form-group from login logic essentially */
+.signup-btn {
+    background: #ff69b4;
+    color: white;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+.signup-btn:hover {
+    background: #ff4f9e;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 79, 158, 0.3);
+}

@@ -1,0 +1,20 @@
+/* Footer Container */
+.footer-container {
+    width: 100%;
+    margin-top: auto;
+    /* Pushes footer to the bottom */
+    padding: 20px 0;
+    text-align: center;
+    background: linear-gradient(135deg, #ffe6f1, #fff0f8);
+    /* Matching theme */
+    border-top: 2px solid #ffb6d8;
+    color: #d8268c;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    box-shadow: 0 -4px 10px rgba(255, 182, 216, 0.1);
+}
+
+.footer-text {
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
