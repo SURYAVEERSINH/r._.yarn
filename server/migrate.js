@@ -8,7 +8,7 @@ const path = require('path');
 dotenv.config({ path: path.join(__dirname, '.env') });
 
 const LOCAL_URI = 'mongodb://127.0.0.1:27017/r_yarn_shop';
-const CLOUD_URI = 'mongodb+srv://suryaveersinhbhati:HARIDEV496@cluster0.xlrpaae.mongodb.net/?appName=Cluster0';
+const CLOUD_URI = 'mongodb+srv://suryaveersinhbhati:HARIDEV496@cluster0.x1rpaae.mongodb.net/r_yarn_shop';
 
 const migrate = async () => {
     try {

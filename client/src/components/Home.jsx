@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import API_URL from '../config';
 import ProductCard from './ProductCard';
 import CategorySlider from './CategorySlider';

@@ -172,9 +172,10 @@ const Profile = () => {
             <div className="profile-content">
                 <div className="profile-sidebar">
                     <img
-                        src={image ? `http://192.168.1.8:5000${image}` : profileDefault}
+                        src={image ? `${API_URL}${image}` : profileDefault}
                         alt={name}
                         className="profile-pic-large"
+                        onError={(e) => { e.target.onerror = null; e.target.src = profileDefault; }}
                     />
                     <h2 className="profile-name">{name}</h2>
                     <p className="profile-email">{email}</p>

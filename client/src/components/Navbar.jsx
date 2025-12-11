@@ -110,6 +110,7 @@ const Navbar = () => {
                                         src={`${API_URL}${user.profileImage}`}
                                         alt={user.name}
                                         className="user-profile-icon"
+                                        onError={(e) => { e.target.onerror = null; e.target.src = profileDefault; }} // Fallback if image not on server
                                     />
                                 ) : (
                                     <User className="w-6 h-6" />

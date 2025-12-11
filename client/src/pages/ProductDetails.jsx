@@ -22,16 +22,16 @@ const ProductDetails = () => {
             try {
                 setLoading(true);
                 // Fetch single product
-                const productResponse = await axios.get(`${API_URL} /api/products / ${id} `);
+                const productResponse = await axios.get(`${API_URL}/api/products/${id}`);
                 const productData = productResponse.data;
                 setProduct(productData);
 
                 // Fetch all products to filter for similar ones
-                // Ideally this should be a backend query, but for now we filter client side
-                const allData = await allResponse.json();
+                const allResponse = await axios.get(`${API_URL}/api/products`);
+                const allData = allResponse.data;
 
                 const sim = allData.filter(p =>
-                    p.category === data.category && p._id !== data._id
+                    p.category === productData.category && p._id !== productData._id
                 ).slice(0, 4); // Limit to 4 similar items
 
                 setSimilarProducts(sim);
@@ -88,10 +88,10 @@ const ProductDetails = () => {
                             Add to Cart
                         </button>
                         <button
-                            className={`favorite - btn - large ${isFavorite(product._id) ? 'active' : ''} `}
+                            className={`favorite-btn-large ${isFavorite(product._id) ? 'active' : ''}`}
                             onClick={() => toggleFavorite(product)}
                         >
-                            <Heart className={`w - 6 h - 6 ${isFavorite(product._id) ? 'fill-current text-purple-600' : 'text-gray-400'} `} />
+                            <Heart className={`w-6 h-6 ${isFavorite(product._id) ? 'fill-current text-purple-600' : 'text-gray-400'}`} />
                         </button>
                     </div>
                 </div>

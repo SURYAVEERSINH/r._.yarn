@@ -42,7 +42,7 @@ const Cart = () => {
         }
 
         try {
-            const response = await fetch('http://192.168.1.8:5000/api/payment/create-order', {
+            const response = await fetch(`${API_URL}/api/payment/create-order`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

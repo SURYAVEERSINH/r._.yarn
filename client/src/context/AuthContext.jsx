@@ -41,6 +41,14 @@ export const AuthProvider = ({ children }) => {
 
     const signup = async (name, email, password, phone) => {
         try {
+            const response = await fetch(`${API_URL}/api/users`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ name, email, password, phone }),
+            });
+
             if (!response.ok) {
                 const contentType = response.headers.get("content-type");
                 let message = 'Signup failed';
@@ -71,7 +79,7 @@ export const AuthProvider = ({ children }) => {
 
     const updateProfile = async (userData) => {
         try {
-            const response = await fetch(`${API_URL}/api/users`, {
+            const response = await fetch(`${API_URL}/api/users/profile`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
