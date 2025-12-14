@@ -4,7 +4,7 @@ import './Footer.css';
 const Footer = () => {
     return (
         <footer className="footer-container">
-            <p className="footer-text">BHATI</p>
+            <p className="footer-text">BHATI | v1.1</p>
         </footer>
     );
 };
