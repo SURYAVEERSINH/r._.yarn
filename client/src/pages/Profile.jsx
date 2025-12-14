@@ -330,7 +330,7 @@ const Profile = () => {
                                         <th>ADDRESS</th>
                                         <th>TOTAL</th>
                                         <th>PAID</th>
-                                        <th>DELIVERED</th>
+
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -357,13 +357,7 @@ const Profile = () => {
                                                     <span className="status-not-paid">Not Paid</span>
                                                 )}
                                             </td>
-                                            <td>
-                                                {order.isDelivered ? (
-                                                    <span className="status-paid">Delivered</span>
-                                                ) : (
-                                                    <span className="status-not-paid">Pending</span>
-                                                )}
-                                            </td>
+
                                         </tr>
                                     ))}
                                 </tbody>
@@ -380,7 +374,7 @@ const Profile = () => {
                                         <th>ADDRESS</th>
                                         <th>TOTAL</th>
                                         <th>PAID</th>
-                                        <th>DELIVERED</th>
+
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -406,13 +400,7 @@ const Profile = () => {
                                                     <span className="status-not-paid">Not Paid</span>
                                                 )}
                                             </td>
-                                            <td>
-                                                {order.isDelivered ? (
-                                                    <span className="status-paid">Delivered</span>
-                                                ) : (
-                                                    <span className="status-not-paid">Pending</span>
-                                                )}
-                                            </td>
+
                                         </tr>
                                     ))}
                                 </tbody>
